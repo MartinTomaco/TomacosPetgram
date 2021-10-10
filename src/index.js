@@ -1,4 +1,4 @@
 import React from "react";
 import ReactDOM from 'react-dom'
 
-ReactDOM.render('Hola ameo', document.body)
+ReactDOM.render(<h1>Hola perrites</h1>, document.getElementById('app'))
