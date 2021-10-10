@@ -3,10 +3,12 @@ import { Category } from './componets/Category';
 import { ListOfCategories } from './componets/ListOfCategories';
 import { GlobalStyle } from './GobalStyles';
 import { ListOfPhotoCards } from './componets/ListOfPhotoCards';
+import { LogoSVG } from './componets/LogoSVG';
 
 export const App = () => (
   <>
     <GlobalStyle />
+    <LogoSVG/>
     <ListOfCategories />
     <ListOfPhotoCards />
   </>
