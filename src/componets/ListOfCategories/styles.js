@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { bounceDown } from "../../styles/animation";
 
 export const List = styled.ul`
   display: flex;
@@ -24,6 +25,7 @@ export const List = styled.ul`
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     transform: scale(.6);
     z-index: 1;
+    ${bounceDown({time:'1s'})}
   }
 
 `
