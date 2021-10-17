@@ -21,7 +21,7 @@ const bounceDownKeyFrames = keyframes`
     top: -60px
   }
   40%{
-    top: 10px
+    top: 0px
   }
   100% {
     top: -20px

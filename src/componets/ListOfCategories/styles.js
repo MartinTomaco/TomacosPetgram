@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { bounceDown } from "../../styles/animation";
 
 export const List = styled.ul`
@@ -12,7 +12,8 @@ export const List = styled.ul`
   padding-inline-start: 0;
   margin-bottom: 10px;
 
-  &.fixed {
+  ${props => props.fixed && css`
+    {
     position: fixed;
     top: -20px;
     right:0;
@@ -26,8 +27,9 @@ export const List = styled.ul`
     transform: scale(.6);
     z-index: 1;
     ${bounceDown({time:'1s'})}
-  }
-
+    }
+  `}
+ 
 `
 
 export const Item = styled.li`
