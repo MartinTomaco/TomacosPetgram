@@ -1,7 +1,8 @@
-## curso-platzi-react-avanzado ⚛️
+Tomacos Petgram's
 
-**¡Sígueme en Youtube para más contenido de React y Javascript!** 👉 https://www.youtube.com/midudev
+Aplicacion a modo de ejemplo desarollada en react
+Utilizando datos leidos desde una API hosteada en Vercel.
 
-**¡Sígueme en Twitch para streams sobre desarrollo web!** 👉 https://www.twitch.tv/midudev
-
-Repositorio con el código del [Curso Avanzado de React de Platzi](https://platzi.com/cursos/react-avanzado/)
+custom hooks
+graphql 
+etc...
