@@ -5,4 +5,7 @@ Utilizando datos leidos desde una API hosteada en Vercel.
 
 custom hooks
 graphql 
-etc...
+y mucho mas...
+
+Deploy:
+https://tomacospetgram.vercel.app/
