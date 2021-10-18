@@ -6,10 +6,10 @@ export const PhotoCardWithQuery = ({ id }) => {
   const { loading, error, data } = useGetSinglePhoto(id)
 
   if (error) {
-    return <h2>Internal Server Error: {error.message}</h2>;
+    return <p>Internal Server Error: {error.message}</p>;
   }
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <p>Loading...</p>;
   }
 
   const { photo = {} } = data

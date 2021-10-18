@@ -11,10 +11,10 @@ export const ListOfPhotoCards = ({ categoryId }) => {
   const { loading, error, data } = useGetPhotos(categoryId);
   
   if (error) {
-    return <h2>Internal Server Error</h2>;
+    return <p>Internal Server Error: {error.message}</p>;
   }
   if (loading) {
-    return <h2>Loading...</h2>;
+    return <p>Loading...</p>;
   }
 
   return (
