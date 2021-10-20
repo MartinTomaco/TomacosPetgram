@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import ReactPlaceholder from 'react-placeholder';
+import {
+  TextBlock,
+  RoundShape,
+} from 'react-placeholder/lib/placeholders';
 import { Category } from '../Category';
 import { List, Item } from './styles';
 
@@ -38,12 +43,30 @@ export const ListOfCategories = () => {
     [showFixed]
   );
 
+  const listOfCategoriesSkeleton = (
+    <React.Fragment>
+      <div
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      >
+        <RoundShape
+          color="#eee"
+          style={{ width: 75, height: 75, marginLeft: 10, marginRight: 10 }}
+        />
+        <TextBlock color="#eee" rows={1} style={{ width: 40 }} />
+      </div>
+    </React.Fragment>
+  );
+
   const renderList = (fixed) => (
     <List fixed={fixed}>
       {loading ? (
-        <Item key="loading">
-          <Category />
-        </Item>
+        <ReactPlaceholder
+        ready={!loading}
+        showLoadingAnimation={true}
+        customPlaceholder={listOfCategoriesSkeleton}
+        >
+          
+        </ReactPlaceholder>
       ) : (
         categories.map((category) => (
           <Item key={category.id}>
