@@ -77,6 +77,7 @@ export const ListOfCategories = () => {
                  Podemos hacer eso o 
                  usar el spread operator */
               {...category}
+              path={`/pet/${category.id}`}
             />
           </Item>
         ))

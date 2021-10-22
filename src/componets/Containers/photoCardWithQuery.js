@@ -38,7 +38,16 @@ export const PhotoCardWithQuery = ({ id }) => {
       showLoadingAnimation={true}
       customPlaceholder={photoCardSkeleton}
     >
-      <PhotoCard loading={loading} {...photo} />
+      {!data ? (
+        <></>
+      ) : (
+        <PhotoCard
+          id={data.photo.id}
+          likes={data.photo.likes}
+          src={data.photo.src}
+          loading={loading}
+        />
+      )}
     </ReactPlaceholder>
   );
 };

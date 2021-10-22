@@ -43,7 +43,7 @@ export const ListOfPhotoCards = ({ categoryId }) => {
     >
       <List>
         {photoData.photos.map((photo) => (
-          <PhotoCard key={photo.id} {...photo} />
+          <PhotoCard {...photo} key={photo.id}/>
         ))}
       </List>
     </ReactPlaceholder>
