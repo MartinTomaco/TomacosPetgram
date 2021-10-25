@@ -30,8 +30,6 @@ export const PhotoCardWithQuery = ({ id }) => {
     return <p>Internal Server Error: {error.message}</p>;
   }
 
-  const photo = data || {}; //Si aún data es undefined le asigno un objeto vacio
-
   return (
     <ReactPlaceholder
       ready={!loading}

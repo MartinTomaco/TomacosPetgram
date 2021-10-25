@@ -14,20 +14,20 @@ export const App = () => {
 
   return (
     <>
-      <GlobalStyle />
-      <LogoSVG />
-      {detailId ? (
-        <PhotoCardWithQuery id={parseInt(detailId)} />
-      ) : (
-        <>
-          <BrowserRouter>
+      <BrowserRouter>
+        <GlobalStyle />
+        <LogoSVG />
+        {detailId ? (
+          <PhotoCardWithQuery id={parseInt(detailId)} />
+        ) : (
+          <>
             <Switch>
               <Route path="/pet/:id" component={Home} />
               <Route path="/" component={Home} />
             </Switch>
-          </BrowserRouter>
-        </>
-      )}
+          </>
+        )}
+      </BrowserRouter>
     </>
   );
 };
