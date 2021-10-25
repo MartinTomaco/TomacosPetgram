@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FavButton } from '../FavButton';
 import { ImgWrapper, Img, Article } from './styles';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
@@ -34,11 +35,11 @@ export const PhotoCard = ({
     <Article ref={element}>
       {show && (
         <>
-          <a href={`/?detail=${id}`}>
+          <Link to={`/detail/${id}`}>
             <ImgWrapper>
               <Img src={src} />
             </ImgWrapper>
-          </a>
+          </Link>
           <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
         </>
       )}

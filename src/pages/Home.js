@@ -5,13 +5,13 @@ import { ListOfPhotoCards } from "../componets/ListOfPhotoCards"
 export const Home = (props) => {
     const {
       match: {
-        params: { id }
+        params: { CategoryId }
       }
     } = props
     return (
       <>
         <ListOfCategories />
-        <ListOfPhotoCards categoryId={id} />
+        <ListOfPhotoCards categoryId={CategoryId} />
       </>
     )
   }
