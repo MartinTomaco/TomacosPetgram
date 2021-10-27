@@ -7,5 +7,6 @@ export const Detail = (props) => {
           params: { DetailId }
         }
       } = props
+    // const DetailId = props.match.params.DetailId es igual
   return <PhotoCardWithQuery id={DetailId} />;
 };

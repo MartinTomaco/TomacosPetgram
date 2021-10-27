@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { GlobalStyle } from './styles/GobalStyles';
 import { LogoSVG } from './componets/LogoSVG';
+import { NavBar } from './componets/NavBar';
 import { Home } from './pages/Home';
 import { Detail } from './pages/Detail';
 
@@ -17,6 +18,7 @@ export const App = () => {
           <Route path="/detail/:DetailId" component={Detail} />
           <Route path="/" component={Home} />
         </Switch>
+        <NavBar/>
       </BrowserRouter>
     </>
   );
