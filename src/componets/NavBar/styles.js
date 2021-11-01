@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+//El NavLink es como el Link pero si incluye el atributo aria-current
+import { fadeIn } from '../../styles/animation';
 
 export const Nav = styled.nav`
   position: fixed;
@@ -18,11 +20,23 @@ export const Nav = styled.nav`
   z-index: 1;
 `;
 
-export const LinkStyled = styled(Link)`
+export const LinkStyled = styled(NavLink)`
   align-items: center;
   color: #888;
   display: inline-flex;
   height: 100%;
   justify-content: center;
   text-decoration: none;
+  &[aria-current] {
+    color: #000;
+    &:after {
+      ${fadeIn({ time: '0.5s' })};
+      content: '·';
+      font-weight: bold;
+      position: absolute;
+      bottom: 0;
+      font-size: 34px;
+      line-height: 20px;
+    }
+  }
 `;

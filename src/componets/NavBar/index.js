@@ -7,13 +7,13 @@ const SIZE = '32px';
 export const NavBar = () => {
   return (
     <Nav>
-      <LinkStyled to="/">
+      <LinkStyled exact to="/">
         <MdHome size={SIZE} />
       </LinkStyled>
-      <LinkStyled to="/favs">
+      <LinkStyled exact to="/favs">
         <MdFavorite size={SIZE} />
       </LinkStyled>
-      <LinkStyled to="/user">
+      <LinkStyled exact to="/user">
         <MdPerson size={SIZE} />
       </LinkStyled>
     </Nav>
