@@ -5,11 +5,10 @@ import { LogoSVG } from './componets/LogoSVG';
 import { NavBar } from './componets/NavBar';
 import { Home } from './pages/Home';
 import { Detail } from './pages/Detail';
-import { Favs } from './pages/Favs'
-import { User } from './pages/User'
-import { NotRegisteredUser } from './pages/NotRegisteredUser'
-
-const isLogged = false
+import { Favs } from './pages/Favs';
+import { User } from './pages/User';
+import { NotRegisteredUser } from './pages/NotRegisteredUser';
+import Context from './Context';
 
 export const App = () => {
   return (
@@ -18,11 +17,26 @@ export const App = () => {
       <BrowserRouter>
         <LogoSVG />
         <Switch>
+          <Route exact path="/" component={Home} />
           <Route path="/pet/:CategoryId" component={Home} />
           <Route path="/detail/:DetailId" component={Detail} />
-          <Route exact path='/favs' render={() => isLogged ? <Favs /> : <NotRegisteredUser />} />
-          <Route exact path='/user' render={() => isLogged ? <User /> : <NotRegisteredUser />} />
-          <Route path="/" component={Home} />
+          <Context.Consumer>
+            {({ isAuth }) => (
+              <>
+                <Route
+                  exact
+                  path="/favs"
+                  render={() => (isAuth ? <Favs /> : <NotRegisteredUser />)}
+                />
+                <Route
+                  exact
+                  path="/user"
+                  render={() => (isAuth ? <User /> : <NotRegisteredUser />)}
+                />
+              </>
+            )}
+          </Context.Consumer>
+          
         </Switch>
         <NavBar />
       </BrowserRouter>
