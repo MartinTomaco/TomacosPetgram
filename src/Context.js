@@ -5,7 +5,7 @@ const Provider = ({ children }) => {
 
 
     const [isAuth, setIsAuth] = useState(()=>{
-        return window.sessionStorage.getItem('token')
+        return window.sessionStorage.getItem('token') //Si tiene token isAuth inicia true
     })
 
     const value = {

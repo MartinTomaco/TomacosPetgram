@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FavButton } from '../FavButton';
 import { ImgWrapper, Img, Article } from './styles';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
+
 import { useNearScreen } from '../../hooks/useNearScreen';
 import { useMuationToogleLike } from '../../hooks/useMuationToogleLike';
 
@@ -11,24 +11,21 @@ const DEFAULT_IMAGE =
 
 export const PhotoCard = ({
   id,
+  liked,
   likes = 0,
   src = DEFAULT_IMAGE,
   loading = false,
 }) => {
   const [show, element] = useNearScreen();
-  const key = `like-${id}`;
-  const [liked, setLiked] = useLocalStorage(key, false);
 
   const { mutation, mutationLoading, mutationError } = useMuationToogleLike();
 
   const handleFavClick = () => {
-    !liked &&
-      mutation({
-        variables: {
-          input: { id },
-        },
-      });
-    setLiked(!liked);
+    mutation({
+      variables: {
+        input: { id },
+      },
+    });
   };
 
   return (
