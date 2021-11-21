@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ApolloClient, ApolloLink, HttpLink, ApolloProvider, InMemoryCache, concat } from '@apollo/client';
+import { ApolloClient, ApolloLink, HttpLink, ApolloProvider, InMemoryCache, from } from '@apollo/client';
+import { onError } from '@apollo/client/link/error'
 import Context from './Context';
 import { App } from './App';
 
@@ -20,9 +21,20 @@ const authMiddleware = new ApolloLink((operation, forward) => {
   return forward(operation);
 })
 
+const errorMiddleware = onError(({ networkError }) => {
+  if (networkError && networkError.result.code === 'invalid_token') {
+    window.sessionStorage.removeItem('token')
+    window.location = '/user'
+  }
+})
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: concat(authMiddleware, httpLink),
+  link: from([
+    errorMiddleware, 
+    authMiddleware, 
+    httpLink
+  ])
 });
 
 ReactDOM.render(
