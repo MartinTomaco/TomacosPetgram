@@ -42,6 +42,7 @@ export const PhotoCardWithQuery = ({ id }) => {
         <PhotoCard
           id={data.photo.id}
           likes={data.photo.likes}
+          liked={data.photo.liked}
           src={data.photo.src}
           loading={loading}
         />
